@@ -11,6 +11,16 @@
 
 ### 常用方法
 #### 字符串
++ length()
++ charAt()
++ indexOf()
++ replace
+```
+    String a = "123456789456132";
+    String b = "456";
+    a = a.replace(b,"");
+    System.out.println(a);
+```
 #### 数组
 + 快速查看数组的变量
     + Arrays.toString(arr)
@@ -76,6 +86,9 @@
 + 取幂函数----Math.pow(a,b)a的b次方
 + 开根----Math.sqrt(num)num的平方根
 + 返回两数较大----Math.max(a,b)
++ 取理论最大值和理论最小值
+    + Integer.MAX_VALUE
+    + Integer.MIN_VALUE
 #### 哈希
 + hashset
     + 创建

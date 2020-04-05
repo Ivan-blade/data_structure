@@ -8,7 +8,7 @@ public class merge{
     // 当左右的子数组排序完毕之后，再合并这两个子数组形成一个新的排序数组。
     // 整个过程递归进行，当只剩下一个元素或者没有元素的时候就直接返回。
     public merge(int[] temp) {
-        mergesoft(temp, 0, temp.length - 1);
+        mergesoft1(temp, 0, temp.length - 1);
         this.arr = temp;
     }
     public void mergeSort(int[] nums, int left, int right) {  // 需要左右边界确定排序范围
@@ -34,12 +34,12 @@ public class merge{
         }
     }
 
-    public void mergesoft(int[] nums, int left,int right) {
+    public void mergesoft1(int[] nums, int left,int right) {
         if(left >= right) return;
         int mid = (left + right)/2;
 
-        mergesoft(nums, left, mid);
-        mergesoft(nums, mid+1,right);
+        mergesoft1(nums, left, mid);
+        mergesoft1(nums, mid+1,right);
 
         int i = left,j = mid+1,cur = 0;
         int[] temp = new int[right-left+1];

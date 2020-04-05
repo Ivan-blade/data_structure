@@ -5,6 +5,8 @@ package al.vertex;
 public class Vertex {
     private String value;
 
+    public boolean visited;
+    
     public void setValue(String value){
         this.value = value;
     }

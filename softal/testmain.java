@@ -17,8 +17,8 @@ public class testmain{
         // System.out.println(Arrays.toString(sel.arr));
 
         // 插入
-        insertion ins = new insertion(arr);
-        System.out.println(Arrays.toString(ins.arr));
+        // insertion ins = new insertion(arr);
+        // System.out.println(Arrays.toString(ins.arr));
 
         // 堆排序
         // 待会看
