@@ -33,7 +33,7 @@ public class TreeNode {
         if(this.lNode != null) {
             lNode.midShow();
         }
-        System.out.println(this.value);
+        System.out.print(this.value + " ");
         if(this.rNode != null) {
             rNode.midShow();
         }
@@ -47,7 +47,7 @@ public class TreeNode {
         if(this.rNode != null) {
             rNode.endShow();
         }
-        System.out.println(this.value);
+        System.out.print(this.value + " ");
     }
 
 

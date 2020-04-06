@@ -120,3 +120,25 @@
             map.remove(string);                     // 根据键移出该键值
             map.clear();                            // 移除所有键值对
         ```
+#### 优先队列
++ priorityQueue
+    ```
+        PriorityQuene<Integer> heap = new PriorityQuene<>();
+        // 新建优先队列
+        heap.add()
+        // 增加元素
+        heap.poll()
+        // 弹出堆顶元素
+    ```
+#### 双端队列
++ Deque（方法包含了队列和堆栈的所有方法）
+    + 既可以当堆栈使用又可以当队列使用。。。甚至可以同时作为队列和堆栈使用
+    + 新建种类
+        + LinkedList 大小可变的链表双端队列，允许元素为 null
+        + ArrayDeque 大下可变的数组双端队列，不允许 null
+        + 并发场景
+            + LinkedBlockingDeque 如果队列为空时，获取操作将会阻塞，知道有元素添加
+        ```
+            创建
+            Deque<可选> deque = new LinkedList();
+        ```
