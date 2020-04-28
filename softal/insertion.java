@@ -42,20 +42,6 @@ public class insertion{
             temp[i+1] = key;
         }
     }
-
-    public void ins3(int[] temp) {
-        int len = temp.length;
-        for(int j = 0;j<len;j++) {
-            int key = temp[j];
-            int i = j -1;
-            while(i >= 0 && temp[i] > key) {
-                temp[i+1] = temp[i];
-                i--;
-            }
-            temp[i+1] = key;
-        }
-    }
-
 }
 
 

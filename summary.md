@@ -10,18 +10,91 @@
         + arr[0].length
 
 ### 常用方法
+#### 单位转换
++ char转为int
+    + 想要将int类型的10转换为char类型的10除了类型转换还需要做处理
+        + 强制类型转换会将int类型当做ascll码解析，所以我们需要加上48或者加上'0'
+            ```
+                int a = 1;
+                char b = (char)(a+'0');
+                char b = (char)(a+48);
+                System.out.println(b);
+            ```
+#### Integer进制转换
++ 十进制转其他
+    + 十进制转二进制
+        + Integer.toBinaryString(2)
+    + 十进制转八进制
+        + Integer.toOctalString(8)
+    + 十进制转十六进制
+        + Integer.toHexString(16)
+    + 十进制转其他进制
+        + Integer.toString(int i,int radix)
+            + 将十进制的i转换成string类型的radix进制数
+            + Integer.toString(2,2)
+            + 将十进制2转换成2进制2
++ 其他转十进制
+    + Integer.parseInt(String s,int radix) 
+        + 将radix进制String类型的数转换为十进制的数
+        + Integer.parseInt("F",16)
+        + 将十六进制的F转化为十进制数
++ 取理论最大值和理论最小值
+    + Integer.MAX_VALUE
+    + Integer.MIN_VALUE
+#### Scanner
++ 逐个处理多个字符
+    ```
+        Scanner input = new Scanner(System.in)
+        while(input.hasNext()) {
+            int temp = input.nextInt();
+            System.out.println(temp;)
+        }
+    ```
+#### StringBuffer
+    ```
+        StringBuffer sb = new StringBuffer();
+        char a = "a";
+        char b = "b";
+        sb.append(a);
+        sb.append(b);
+        String res = sb.toString();
+    ```
 #### 字符串
 + length()
 + charAt()
++ toCharArray() 转字符数组
 + indexOf()
-+ replace
++ replace()
 ```
     String a = "123456789456132";
     String b = "456";
     a = a.replace(b,"");
     System.out.println(a);
 ```
++ substring(start,end);
+
+
+
+#### 栈stack
+```
+    Stack<Character> stack = new Stack();
+    stack.pop()
+    stack.push()
+    stack.isEmpty()
+    stack.peek()    -- 获取栈顶的值
+    stack.clear()
+```
+#### 队列queue
+```
+    Deque<Integer> queue = new LinkedList<>();
+    add()   入队
+    peek()  获取不移除队头
+    poll()  获取并移除队头
+```
+
 #### 数组
++ 数组判断为空的方式
+    + arr.length == 0 || arr = null;
 + 快速查看数组的变量
     + Arrays.toString(arr)
 + Array.copyOfRange(arr,from,to)(复制返回选中数组，from闭to开)
@@ -33,7 +106,28 @@
         System.out.println(Arrays.toString(temp));
 
     ```
-+ ArrayList
++ 复制数组
+    ```
+        int[] a = {1,2,3};
+        int[] b = new int[3];
+    ```
+    + 完全复制（更改复制数组时，原数组也会发生改变）
+        ```
+            b = a;
+        ```
+    + 仅复制数值（完全独立的新数组）
+        + for循环赋值
+        + System的静态方法arraycopy()
+            + public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+                + src:源数组
+                + srcPos:源数组要复制的起始位置
+                + dest:目的数组
+                + destPos:目的数组放置的起始位置
+                + length:复制的长度
+                ```
+                    System.arraycopy(a,0,b,0,3);
+#### 动态数组
++ ArrayList(动态数组)
     + 创建
         ```
             ArrayList list = new ArrayList();
@@ -69,7 +163,7 @@
         String s = 'hello';
         int[] arr = new int[s.length()];
         for(int i = 0;i < s.length();i++) {
-            arr[i] = s.cahrAt(i);
+            arr[i] = s.charAt(i);
         }
     ```
 + 判断字符串中字符数量
@@ -86,9 +180,6 @@
 + 取幂函数----Math.pow(a,b)a的b次方
 + 开根----Math.sqrt(num)num的平方根
 + 返回两数较大----Math.max(a,b)
-+ 取理论最大值和理论最小值
-    + Integer.MAX_VALUE
-    + Integer.MIN_VALUE
 #### 哈希
 + hashset
     + 创建
@@ -123,19 +214,23 @@
 #### 优先队列
 + priorityQueue
     ```
-        PriorityQuene<Integer> heap = new PriorityQuene<>();
+        PriorityQuene<Integer> heap = new PriorityQuene<>(Comparator.reverseOrder());
         // 新建优先队列
         heap.add()
         // 增加元素
         heap.poll()
         // 弹出堆顶元素
+        while(!queue.isEmpty()) {
+            System.out.print(queue.poll()+ " ");
+        }
+        // 遍历方式
     ```
 #### 双端队列
 + Deque（方法包含了队列和堆栈的所有方法）
     + 既可以当堆栈使用又可以当队列使用。。。甚至可以同时作为队列和堆栈使用
     + 新建种类
         + LinkedList 大小可变的链表双端队列，允许元素为 null
-        + ArrayDeque 大下可变的数组双端队列，不允许 null
+        + ArrayDeque 大小不可变的数组双端队列，不允许 null
         + 并发场景
             + LinkedBlockingDeque 如果队列为空时，获取操作将会阻塞，知道有元素添加
         ```

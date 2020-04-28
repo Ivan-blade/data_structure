@@ -14,10 +14,12 @@
     + 最大堆最小堆
         ```
             PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>(); //小顶堆，默认容量为11
-            PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(11,new Comparator<Integer>(){
-                @Override
-                public int compara(Integer i1 , Integer i2){
-                    return i2 - i1;
+            PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder()); // 大顶堆
+        ```
+    + 遍历方式
+        + 使用for循环挨个弹出会报错，推荐isEmpty循环
+        ```
+            while(!heap.isEmpty()) {
+                System.out.print(heap.poll()+ " ");
             }
-            });
         ```
