@@ -45,19 +45,18 @@ public class TestTree {
         // 外部递归遍历，并保存为数组
         // List<Integer> list = new ArrayList<>();
         // inshow(root,list);
-        // for(int num : list) {
-        //     System.out.print(num+ " ");
-        // }
+        // System.out.println(list);
     }
 
+
     // 外部递归中序遍历
-    // public static void inshow(TreeNode node,List<Integer> list) {
-    //     if(node != null) {
-    //         inshow(node.lNode,list);
-    //         list.add(node.value);
-    //         inshow(node.rNode,list); 
-    //     }
-    // }
+    public static void inshow(TreeNode node,List<Integer> list) {
+        if(node != null) {
+            inshow(node.lNode,list);
+            list.add(node.value);
+            inshow(node.rNode,list); 
+        }
+    }
 
     // 外部堆栈模拟中序遍历（pop的顺序就是遍历顺序）
     // 先将左孩子全部压入，当node等于null表示左孩子已经全部压入，再开始弹出
